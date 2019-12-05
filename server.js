@@ -19,14 +19,14 @@ server.use((req, res, next) => {
     return res.sendFile(path.join(__dirname, './build/index.html'))
 })
 
-server.use(router)
-
 server.use(jsonServer.rewriter({
     '/api/*': '/$1',
     "/api/animalia": "/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/animalia/:id": "/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location"
 
 }))
+
+server.use(router)
 
 server.listen(port, () => {
     console.log(`app running on port ${port}`)
