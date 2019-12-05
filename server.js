@@ -18,7 +18,7 @@ server.use(middlewares);
 server.use((req, res, next) => {
     // use originalUrl since other middleware is likely reassigning req.url
     const isApiRoute = req.originalUrl.includes('/api/');
-    console.log(`isApiRoute: ${isApiRoute}`)
+    console.log(`isApiRoute: ${isApiRoute} ${req.originalUrl}`)
 
     if (isApiRoute) return next();
 
