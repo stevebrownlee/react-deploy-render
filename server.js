@@ -1,10 +1,10 @@
-const path = require('path');
-const dbPath = '/var/data/db.json';
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router(dbPath);
-const middlewares = jsonServer.defaults({ static: "./build" });
-const port = process.env.PORT || 5002;
+const path = require('path')
+const dbPath = './API/db.json'
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router(dbPath)
+const middlewares = jsonServer.defaults({ static: "./build" })
+const port = process.env.PORT || 5002
 
 server.use(jsonServer.rewriter({
     '/api/*': '/$1',
@@ -13,21 +13,21 @@ server.use(jsonServer.rewriter({
 
 }))
 
-server.use(middlewares);
+server.use(middlewares)
 
 server.use((req, res, next) => {
     // use originalUrl since other middleware is likely reassigning req.url
-    const isApiRoute = req.originalUrl.includes('/api/');
+    const isApiRoute = req.originalUrl.includes('/api/')
     console.log(`isApiRoute: ${isApiRoute} ${req.originalUrl}`)
 
-    if (isApiRoute) return next();
+    if (isApiRoute) return next()
 
     console.log("Not API route, serve static file")
-    return res.sendFile(path.join(__dirname, './build/index.html'));
-});
+    return res.sendFile(path.join(__dirname, './build/index.html'))
+})
 
-server.use(router);
+server.use(router)
 
 server.listen(port, () => {
-    console.log(`app running on port ${port}`);
-});
+    console.log(`app running on port ${port}`)
+})
