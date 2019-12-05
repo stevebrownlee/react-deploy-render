@@ -8,16 +8,16 @@ const port = process.env.PORT || 5002
 
 server.use(middlewares)
 
-server.use((req, res, next) => {
-    // use originalUrl since other middleware is likely reassigning req.url
-    const isApiRoute = req.originalUrl.includes('/api/')
-    console.log(`isApiRoute: ${isApiRoute} ${req.originalUrl}`)
+// server.use((req, res, next) => {
+//     // use originalUrl since other middleware is likely reassigning req.url
+//     const isApiRoute = req.originalUrl.includes('/api/')
+//     console.log(`isApiRoute: ${isApiRoute} ${req.originalUrl}`)
 
-    if (isApiRoute) return next()
+//     if (isApiRoute) return next()
 
-    console.log("Not API route, serve static file")
-    return res.sendFile(path.join(__dirname, './build/index.html'))
-})
+//     console.log("Not API route, serve static file")
+//     return res.sendFile(path.join(__dirname, './build/index.html'))
+// })
 
 server.use(jsonServer.rewriter({
     '/api/*': '/$1',
