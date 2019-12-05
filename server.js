@@ -3,9 +3,10 @@ const dbPath = '/var/data/db.json';
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router(dbPath);
+const middlewares = jsonServer.defaults({ static: "./build" });
+const port = process.env.PORT || 5002;
 
 server.use(jsonServer.rewriter({
-    '/api/*': '/$1',
     "/api/animalia": "/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/animalia/:id": "/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/users*": "/600/users$1",
@@ -17,14 +18,8 @@ server.use(jsonServer.rewriter({
     "/api/employees*": "/660/employees$1"
 
 }))
-const middlewares = jsonServer.defaults({ static: "./build" });
-const port = process.env.PORT || 5002;
 
 server.use(middlewares);
-
-server.use(jsonServer.rewriter({
-    '/api/*': '/$1'
-}));
 
 server.use((req, res, next) => {
     // use originalUrl since other middleware is likely reassigning req.url
