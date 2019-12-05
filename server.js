@@ -3,10 +3,10 @@ const dbPath = '/var/data/db.json'
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router(dbPath)
-const middlewares = jsonServer.defaults({ static: "./build" })
+// const middlewares = jsonServer.defaults({ static: "./build" })
 const port = process.env.PORT || 5002
 
-server.use(middlewares)
+// server.use(middlewares)
 
 // server.use((req, res, next) => {
 //     // use originalUrl since other middleware is likely reassigning req.url
@@ -19,14 +19,14 @@ server.use(middlewares)
 //     return res.sendFile(path.join(__dirname, './build/index.html'))
 // })
 
-server.use(jsonServer.rewriter({
-    '/api/*': '/$1',
-    "/api/animalia": "/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
-    "/api/animalia/:id": "/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location"
+// server.use(jsonServer.rewriter({
+//     '/api/*': '/$1',
+//     "/api/animalia": "/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
+//     "/api/animalia/:id": "/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location"
 
-}))
+// }))
 
-server.use('/api', router)
+server.use(router)
 
 server.listen(port, () => {
     console.log(`app running on port ${port}`)
