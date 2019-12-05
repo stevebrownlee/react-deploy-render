@@ -14,7 +14,8 @@
     "react-scripts": "2.1.5"
   },
   "scripts": {
-    "start": "npm run build && npm run json-serve",
+    "start:old": "npm run build && npm run json-serve",
+    "start": "node server.js",
     "json-serve": "node server.js",
     "start:dev": "concurrently \"npm run json-serve\" \"react-scripts start\"",
     "build": "react-scripts build",
