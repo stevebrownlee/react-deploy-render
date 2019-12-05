@@ -3,7 +3,7 @@ const dbPath = '/var/data/db.json'
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router(dbPath)
-// const middlewares = jsonServer.defaults({ static: "./build" })
+const middlewares = jsonServer.defaults()
 const port = process.env.PORT || 5002
 
 // server.use(middlewares)
