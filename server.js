@@ -1,8 +1,22 @@
 const path = require('path');
-const dbPath = './API/db.json';
+const dbPath = './api/db.json';
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router(dbPath);
+
+server.use(jsonServer.rewriter({
+    '/api/*': '/$1',
+    "/api/animalia": "/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
+    "/api/animalia/:id": "/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
+    "/api/users*": "/600/users$1",
+    "/api/animalOwners*": "/660/animalOwners$1",
+    "/api/treatments*": "/660/treatments$1",
+    "/api/animals*": "/660/animals$1",
+    "/api/owners*": "/660/owners$1",
+    "/api/locations*": "/660/locations$1",
+    "/api/employees*": "/660/employees$1"
+
+}))
 const middlewares = jsonServer.defaults({ static: "./build" });
 const port = process.env.PORT || 5002;
 

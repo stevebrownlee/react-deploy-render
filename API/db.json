@@ -1,29 +1,296 @@
 {
-  "posts": [
+  "treatments": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "animalId": 3,
+      "employeeId": 4,
+      "description": "Provided yearly shots for boarding. Owner wanted teeth cleaned. Scheduled procedure for 8/11/2017",
+      "timestamp": "07/27/2017"
     },
     {
       "id": 2,
-      "title": "How to do things",
-      "author": "Sammy"
+      "animalId": 3,
+      "employeeId": 4,
+      "description": "Animal was administered lethal shots",
+      "timestamp": "02/04/2019"
     },
     {
       "id": 3,
-      "title": "What's wrong with ketchup?",
-      "author": "Betty"
+      "animalId": 1,
+      "employeeId": 3,
+      "description": "Ear infection",
+      "timestamp": "06/12/2016"
+    },
+    {
+      "id": 4,
+      "animalId": 1,
+      "employeeId": 1,
+      "description": "Tick removal",
+      "timestamp": "09/14/2018"
     }
   ],
-  "comments": [
+  "animals": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Doodles",
+      "breed": "German Shepherd",
+      "employeeId": 2,
+      "locationId": 1
+    },
+    {
+      "id": 3,
+      "name": "Angus",
+      "breed": "Dalmatian 👾",
+      "employeeId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 4,
+      "name": "Henley",
+      "breed": "Carolina Retriever 🚒",
+      "employeeId": 1,
+      "locationId": 1
+    },
+    {
+      "id": 5,
+      "name": "Derkins",
+      "breed": "Shih tzu 👿",
+      "employeeId": 3,
+      "locationId": 2
+    },
+    {
+      "id": 6,
+      "name": "Checkers",
+      "breed": "Bulldog",
+      "employeeId": 2,
+      "locationId": 1
+    },
+    {
+      "name": "Sawyer",
+      "breed": "Lollie",
+      "employeeId": 3,
+      "id": 7,
+      "locationId": 2
+    },
+    {
+      "name": "Gypsy",
+      "breed": "Miniature Schnauzer",
+      "employeeId": 2,
+      "id": 8,
+      "locationId": 1
+    },
+    {
+      "name": "Zipper",
+      "breed": "Terrier",
+      "employeeId": 3,
+      "locationId": 2,
+      "id": 9
+    },
+    {
+      "name": "Blue",
+      "breed": "Hound dog",
+      "employeeId": 3,
+      "locationId": 2,
+      "id": 10
+    },
+    {
+      "name": "Bugle",
+      "breed": "Beagle",
+      "employeeId": 9,
+      "locationId": 1,
+      "id": 11
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker",
+      "locationId": 1
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson",
+      "locationId": 1
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc",
+      "locationId": 2
+    },
+    {
+      "name": "Meg Ducharme",
+      "locationId": 2,
+      "id": 4
+    },
+    {
+      "name": "Hannah Hall",
+      "locationId": 2,
+      "id": 5
+    },
+    {
+      "name": "Emily Lemmon",
+      "locationId": 1,
+      "id": 6
+    },
+    {
+      "name": "Jordan Castelloe",
+      "locationId": 1,
+      "id": 7
+    },
+    {
+      "name": "Leah Gwin",
+      "locationId": 2,
+      "id": 8
+    },
+    {
+      "name": "Caitlin Stein",
+      "locationId": 1,
+      "id": 9
+    },
+    {
+      "name": "Greg Korte",
+      "locationId": 1,
+      "id": 10
+    },
+    {
+      "name": "Charisse Lambert",
+      "locationId": 1,
+      "id": 11
+    },
+    {
+      "name": "Madi Peper",
+      "locationId": 2,
+      "id": 12
+    },
+    {
+      "name": "Kristen Norris",
+      "locationId": 1,
+      "id": 13
+    },
+    {
+      "name": "Jenna Solis",
+      "locationId": 2,
+      "id": 14
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North"
+    },
+    {
+      "id": 2,
+      "name": "Nashville South"
+    }
+  ],
+  "users": [
+    {
+      "email": "rtanay@gmail",
+      "password": "$2a$10$oygOhG7QWFgGyV2jOyuG6O12BkiURP2zX5ir5dgOxLflCpFei18G6",
+      "name": "Ryan Tanay",
+      "id": 1
+    },
+    {
+      "email": "angela@lee.com",
+      "password": "$2a$10$e5oz6NxOX9vnpEnU49c4PelSBEgPVlXQl4Rtwc7xuulZhy/MVCtg6",
+      "name": "Agnela Lee",
+      "id": 2
+    },
+    {
+      "email": "kirren@covey.com",
+      "password": "$2a$10$VfGyDddc3HMFSYbVLjjXPesW8MuClALziXeurEYMQ5VpvIzNOt.T.",
+      "name": "Kirren Covey",
+      "id": 3
+    },
+    {
+      "email": "dejan@dejan.com",
+      "password": "$2a$10$ZZLHFDno.i6sk1GcJJAJqOe985s4wJdZ3mlTwm9PmrsPdYyefJFXi",
+      "name": "Dejan Stepjanovich",
+      "id": 4
+    },
+    {
+      "email": "rainu@ittycheriah",
+      "password": "$2a$10$B4U95aKTarhfQ0lNb4kTPeciifRlvY5gZR9DG8yTSwOhFqgwr0xGa",
+      "name": "Rainu Ittycheriah",
+      "id": 5
+    },
+    {
+      "email": "rolando@bernal.com",
+      "password": "$2a$10$0lkiwy4A57CdeMZCZAaxfOWXaw2I8q1QuRljrCAbL5omsWjd2uJzy",
+      "name": "Rolando Bernal",
+      "id": 6
+    }
+  ],
+  "animalOwners": [
+    {
+      "id": 1,
+      "animalId": 1,
+      "userId": 5
+    },
+    {
+      "id": 3,
+      "animalId": 3,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "animalId": 4,
+      "userId": 2
+    },
+    {
+      "id": 5,
+      "animalId": 5,
+      "userId": 4
+    },
+    {
+      "id": 6,
+      "animalId": 5,
+      "userId": 6
+    },
+    {
+      "animalId": 6,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "animalId": 7,
+      "userId": 5,
+      "id": 8
+    },
+    {
+      "animalId": 8,
+      "userId": 6,
+      "id": 9
+    },
+    {
+      "animalId": 10,
+      "userId": 3,
+      "id": 10
+    },
+    {
+      "animalId": 10,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "animalId": 4,
+      "userId": 4,
+      "id": 12
+    },
+    {
+      "animalId": 3,
+      "userId": 6,
+      "id": 13
+    },
+    {
+      "animalId": 11,
+      "userId": 3,
+      "id": 14
+    },
+    {
+      "animalId": 7,
+      "userId": 3,
+      "id": 15
+    }
+  ]
 }
