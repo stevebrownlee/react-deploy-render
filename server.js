@@ -7,6 +7,7 @@ const middlewares = jsonServer.defaults({ static: "./build" });
 const port = process.env.PORT || 5002;
 
 server.use(jsonServer.rewriter({
+    '/api/*': '/$1',
     "/api/animalia": "/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/animalia/:id": "/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/users*": "/600/users$1",
