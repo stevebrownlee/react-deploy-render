@@ -1,5 +1,5 @@
 const path = require('path')
-const dbPath = './API/db.json'
+const dbPath = './api/db.json'
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router(dbPath)
