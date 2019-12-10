@@ -17,6 +17,7 @@ const port = process.env.PORT || 8085
 
 server.use(middlewares)
 server.use(jsonServer.rewriter({
+    '/api/*': '/$1',
     "/api/animalia": "/api/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/animalia/:id": "/api/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location"
 }))
