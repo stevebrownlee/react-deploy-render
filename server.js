@@ -15,13 +15,22 @@ const middlewares = jsonServer.defaults({
 
 const port = process.env.PORT || 8085
 
+server.use(middlewares)
 server.use(jsonServer.rewriter({
     "/api/animalia": "/api/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
     "/api/animalia/:id": "/api/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location"
 }))
 
-server.use(middlewares)
-server.use('/api', router)
+server.use((req, res, next) => {
+    // use originalUrl since other middleware is likely reassigning req.url
+    const isApiRoute = req.originalUrl.includes('/api/');
+
+    if (isApiRoute) return next();
+
+    return res.sendFile(path.join(__dirname, './build/index.html'));
+});
+
+server.use(router)
 
 server.listen(port, () => {
     console.log('JSON Server is running')
