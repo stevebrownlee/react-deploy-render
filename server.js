@@ -6,18 +6,21 @@ if (!fs.existsSync(dbPath)) {
     fs.copyFileSync(initialDbPath, dbPath);
 }
 
-const path = require('path');
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router(dbPath);
-const middlewares = jsonServer.defaults({ static: "./build" });
-const port = process.env.PORT || 5002;
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router(dbPath)
+const middlewares = jsonServer.defaults({
+    static: "./build"
+});
 
-server.use(middlewares);
+const port = process.env.PORT || 8085
 
+server.use(middlewares)
 server.use(jsonServer.rewriter({
-    '/api/*': '/$1'
-}));
+    '/api/*': '/$1',
+    "/api/animalia": "/api/animals?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location",
+    "/api/animalia/:id": "/api/animals/:id?_expand=employee&_sort=employee.id&_embed=treatments&_expand=location"
+}))
 
 server.use((req, res, next) => {
     // use originalUrl since other middleware is likely reassigning req.url
@@ -28,8 +31,8 @@ server.use((req, res, next) => {
     return res.sendFile(path.join(__dirname, './build/index.html'));
 });
 
-server.use(router);
+server.use(router)
 
 server.listen(port, () => {
-    console.log(`app running on port ${port}`);
-});
+    console.log('JSON Server is running')
+})

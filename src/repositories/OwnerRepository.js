@@ -2,11 +2,11 @@ import Settings from "./Settings"
 
 export default {
     async get(id) {
-        const e = await fetch(`${Settings.remoteURL}/owners/${id}`)
+        const e = await fetch(`${Settings.remoteURL}/users/${id}`)
         return await e.json()
     },
     async createAccount(user) {
-        const data = await fetch(`${Settings.remoteURL}/owners`, {
+        const data = await fetch(`${Settings.remoteURL}/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -16,17 +16,17 @@ export default {
         return await data.json()
     },
     async findUser(un, pwd) {
-        const data = await fetch(`${Settings.remoteURL}/owners?email=${un}&password=${pwd}`)
+        const data = await fetch(`${Settings.remoteURL}/users?email=${un}&password=${pwd}`)
         return await data.json()
     },
     async delete(id) {
-        const e = await fetch(`${Settings.remoteURL}/owners/${id}`, {
+        const e = await fetch(`${Settings.remoteURL}/users/${id}`, {
             method: "DELETE"
         })
         return await e.json()
     },
     async getAll() {
-        const e = await fetch(`${Settings.remoteURL}/owners`)
+        const e = await fetch(`${Settings.remoteURL}/users`)
         return await e.json()
     }
 }
