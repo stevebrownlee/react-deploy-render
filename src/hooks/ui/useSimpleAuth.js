@@ -25,7 +25,7 @@ const useSimpleAuth = () => {
     }
 
     const login = (email, password) => {
-        fetch("${settings.remoteURL}/login", {
+        fetch(`${settings.remoteURL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
